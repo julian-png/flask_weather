@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weersvoorspelling</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <br>
+    <h1>Weersvoorspelling voor {{ city }}, {{ country }}</h1>
+    <br>
+    <table class="table table-striped">
+        <tr></tr>
+            <th>Datum</th>
+            <th>Min Temperatuur</th>
+            <th>Max Temperatuur</th>
+            <th>Weersomstandigheden</th>
+            <th>zon op</th>
+            <th>zon onder</th>
+
+        </tr>
+        {% for day in forecast_days %}
+            <tr>
+                <td>{{ day['date'] }}</td>
+                <td>{{ day['day']['mintemp_c'] }}°C</td>
+                <td>{{ day['day']['maxtemp_c'] }}°C</td>
+                <td>{{ day['day']['condition']['text'] }}</td>
+                <td>{{ day['astro']['sunrise'] }}</td>
+                <td>{{ day['astro']['sunrise'] }}</td>
+                
+                
+         {% endfor %}        
+                
+      
+            
+    </table>
+</body>
+</html>
